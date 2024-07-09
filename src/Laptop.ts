@@ -19,6 +19,6 @@ class Laptop{
     }
 }
 
-const laptop: Laptop = new Laptop('Laptop1');
-Laptop.printName(laptop);
+// const laptop: Laptop = new Laptop('Laptop1');
+// Laptop.printName(laptop);
 // console.log(laptop.addRam(3));
