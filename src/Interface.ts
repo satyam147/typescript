@@ -1,13 +1,21 @@
+
+// type Add = (a: number, b: number) => number;
+interface Add {
+    (a: number, b: number): number
+}
+const a: Add = (a: number,b: number) => {
+    return a+b;
+}
+
 interface IDepartment   {
     id: string;
-    name: string;
-    employers: {id: string;name:string}[];
+    name?: string|undefined;
+    employers: {id?: string;name:string}[];
 }
 
 
 let department: IDepartment = {
     id : 'dep',
-    name: 'Department',
     employers: [
         {id:'123',name:'emp1'}
     ]
@@ -24,7 +32,7 @@ let itdepartment: IDepartment = {
 interface IPerson  {
     readonly id: string;
     name: string;
-    hello(): void;
+    hello(message?: string): void;
 }
 
 class Person implements IPerson {
@@ -40,8 +48,8 @@ class Person2 implements IPerson{
     constructor(public id: string,public name:string) {
     }
 
-    hello() {
-        console.log('hello : ' + this.name);
+    hello(message: string) {
+        console.log(message+' : ' + this.name);
     }
 }
 
@@ -50,7 +58,7 @@ person1.hello()
 const person3: IPerson = new Person('789','person 3')
 person3.hello()
 const person2: IPerson = new Person2('456','person 2')
-person2.hello()
+person2.hello('hello')
 
 
 interface IEmployer extends IPerson {
